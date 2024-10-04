@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Our Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        header .nav-links li {
+            margin-left: 20px;
+        }
+
+        header .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        header .nav-links a:hover {
+            color: #1abc9c;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        /* Service Page Styles */
+        .service-section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: space-between; /* Menambahkan ini */
+            overflow: hidden;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .carousel-item {
+            flex: 0 0 23%; /* Mengurangi lebar menjadi 23% */
+            /* margin: 0 15px; */ /* Menghapus margin */
+            background-color: #fff;
+            padding: 20px;
+            box-sizing: border-box; /* Pastikan padding dihitung dalam lebar total */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .carousel-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .carousel h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .carousel p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .carousel .price {
+            font-size: 20px;
+            color: #1abc9c;
+            margin-bottom: 10px;
+        }
+
+        .carousel-item button {
+            padding: 10px 20px;
+            background-color: #1abc9c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .carousel-item button:hover {
+            background-color: #16a085;
+        }
+
+        .description {
+            margin: 50px 0;
+            text-align: left;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .description-item {
+            width: 45%;
+            background-color: #f4f4f9;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 8px 8px 16px #d1d1d6, -8px -8px 16px #ffffff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .description-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .description-item img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .description-item h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .description-item p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .cta-buttons a {
+            margin-right: 20px;
+            padding: 10px 30px;
+            background-color: #1abc9c;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .cta-buttons a:hover {
+            background-color: #16a085;
+        }
+
+        form {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input, form textarea {
+            width: 80%;
+            max-width: 600px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px 30px;
+            background-color: #1abc9c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        form button:hover {
+            background-color: #16a085;
+        }
+
+        .hero {
+    position: relative;
+    height: 600px; /* Ubah sesuai kebutuhan */
+    background-image: url('https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); /* Ganti dengan URL gambar */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px; /* Menambahkan padding */
+    margin-bottom: 20px; /* Menambahkan margin bawah */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 5;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0); /* Ganti dengan warna dan transparansi yang diinginkan */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Ubah warna teks jika perlu */
+}
+        @media (max-width: 768px) {
+        .carousel-item {
+            flex: 0 0 48%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .carousel-item {
+            flex: 0 0 100%;
+        }
+    }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">TechBrand</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services">Services</a></li>
+                <li><a href="About us">About Us</a></li>
+                <li><a href="contact us">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-overlay">
+        </div>
+    </section>
+
+    <section class="service-section">
+        <h2>Our Services</h2>
+        <div class="carousel">
+            <!-- Basic Package -->
+            <div class="carousel-item">
+                <h3>Basic</h3>
+                <p>1 logo, 3 minor revisions, Basic Logo Guide, Bonus: Business Card</p>
+                <p class="price">$150</p>
+                <button>Order Now</button>
+            </div>
+            <!-- UMKM Package -->
+            <div class="carousel-item">
+                <h3>UMKM</h3>
+                <p>3 logo options, 3 minor revisions, Logo Guide</p>
+                <p class="price">Rp 300.000</p>
+                <button>Order Now</button>
+            </div>
+            <!-- Elite Package -->
+            <div class="carousel-item">
+                <h3>Elite</h3>
+                <p>5 logo options, 5 minor revisions, Logo Guide, Branding Kit, Bonus: Social Media Templates</p>
+                <p class="price">Rp 500.000</p>
+                <button>Order Now</button>
+            </div>
+            <!-- Corporate Package -->
+            <div class="carousel-item">
+                <h3>Corporate</h3>
+                <p>Unlimited logo options, 10 revisions, Full Branding Package, Logo Guide, Stationery Design, Bonus: Marketing Templates</p>
+                <p class="price">$1000</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+
+        <div class="description">
+            <!-- Description Item 1 -->
+            <div class="description-item">
+                <img src="https://via.placeholder.com/500" alt="Basic Package Image">
+                <h2>Basic Package</h2>
+                <p>This package is perfect for individuals or startups who want a professional logo with essential branding tools. The package includes one logo design with three minor revisions and a basic logo guide. As a bonus, you will also receive a business card design to kick-start your business identity.</p>
+            </div>
+            <!-- Description Item 2 -->
+            <div class="description-item">
+                <img src="https://via.placeholder.com/500" alt="UMKM Package Image">
+                <h2>UMKM Package</h2>
+                <p>For small to medium-sized businesses, the UMKM package offers three logo options and three minor revisions to ensure you get the perfect logo for your brand. You will also receive a detailed logo guide to help you use your new logo across various media.</p>
+            </div>
+            <!-- Description Item 3 -->
+            <div class="description-item">
+                <img src="https://via.placeholder.com/500" alt="Elite Package Image">
+                <h2>Elite Package</h2>
+                <p>The Elite package is tailored for businesses looking for a comprehensive branding solution. It includes five logo options, five minor revisions, a full branding kit, and social media templates. This package ensures your brand is consistent across all platforms, both online and offline.</p>
+            </div>
+            <!-- Description Item 4 -->
+            <div class="description-item">
+                <img src="https://via.placeholder.com/500" alt="Corporate Package Image">
+                <h2>Corporate Package</h2>
+                <p>Our Corporate package is the ultimate solution for large businesses. It includes unlimited logo options and ten revisions, along with a full branding package, including stationery design, marketing templates, and a detailed logo guide. This package guarantees a cohesive and professional brand image.</p>
+            </div>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="https://wa.me/123456789" target="_blank">Order via WhatsApp</a>
+        </div>
+
+        <form action="/submit-order" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="service" placeholder="Selected Service" required>
+            <textarea name="message" rows="5" placeholder="Additional Details" required></textarea>
+            <button type="submit">Submit Order</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 TechBrand. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
